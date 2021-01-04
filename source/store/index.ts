@@ -10,7 +10,7 @@ declare global {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const item = window.localStorage.getItem('store');
-let persistStore = item ? JSON.parse(item) : {};
+const persistStore = item ? JSON.parse(item) : {};
 
 export const AppStore = createStore(
   rootReducer,

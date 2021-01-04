@@ -9,7 +9,7 @@ interface IProps {
   className?: string;
 }
 
-export const Header = ({ className }: IProps) => {
+export const Header: React.FC<IProps> = ({ className }: IProps) => {
   const offerActivities = API.useOfferActivities();
   const savedActivities = API.useSavedActivities();
 

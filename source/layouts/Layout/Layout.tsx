@@ -30,7 +30,7 @@ export const Layout: React.FC = () => {
             <Checkbox
               className="welcome-window-checkbox"
               label="Don't show again"
-              onCheck={onCheckboxCheck}
+              onChange={onCheckboxCheck}
             />
           </div>
         </PopUpWindow>

@@ -5,10 +5,10 @@ import './Checkbox.scss';
 interface IProps {
   className?: string;
   label: string;
-  onCheck: (checked: boolean) => void;
+  onChange(isChecked: boolean): void;
 }
 
-export const Checkbox: React.FC<IProps> = ({ className, onCheck, label }: IProps) => {
+export const Checkbox: React.FC<IProps> = ({ className, onChange: onCheck, label }: IProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const checkHandler = () => {

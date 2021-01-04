@@ -22,7 +22,7 @@ const ActivityTypeColorMap: Color = {
 interface IProps {
   className?: string;
   activity: IActivity;
-  onClick?: (activity: IActivity) => void;
+  onClick?: (activities: IActivity) => void;
   isSelected: boolean;
 }
 

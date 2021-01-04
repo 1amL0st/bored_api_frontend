@@ -17,7 +17,8 @@ export const NavLink: React.FC<IProps> = ({ to, exact, children, className }: IP
       activeClassName="nav-link active"
       to={to}
       exact={exact}
-      children={children}
-    />
+    >
+      {children}
+    </BaseLink>
   );
 };
