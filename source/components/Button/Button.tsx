@@ -1,6 +1,5 @@
-import React from 'react';
 import classNames from 'classnames';
-
+import React from 'react';
 import './Button.scss';
 
 interface IProps {
@@ -9,6 +8,6 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export const Button = ({ className, ...props }: IProps) => {
+export const Button: React.FC<IProps> = ({ className, ...props }: IProps) => {
   return <button className={classNames('button', className)} {...props} />;
 };

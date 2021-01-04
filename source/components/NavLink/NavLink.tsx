@@ -1,18 +1,16 @@
-import React from 'react';
 import classNames from 'classnames';
-
+import React from 'react';
 import { NavLink as BaseLink } from 'react-router-dom';
-
 import './NavLink.scss';
 
-interface Props {
+interface IProps {
   to: string;
   exact?: boolean;
   children: React.ReactNode;
   className?: string;
 }
 
-export const NavLink = ({ to, exact, children, className }: Props) => {
+export const NavLink: React.FC<IProps> = ({ to, exact, children, className }: IProps) => {
   return (
     <BaseLink
       className={classNames('nav-link', className)}

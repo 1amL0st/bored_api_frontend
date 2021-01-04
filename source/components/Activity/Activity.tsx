@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-
 import { IActivity } from 'api';
-
+import classNames from 'classnames';
+import React from 'react';
 import './Activity.scss';
 
 interface Color {
@@ -28,7 +26,7 @@ interface IProps {
   isSelected: boolean;
 }
 
-export const Activity = ({
+export const Activity: React.FC<IProps> = ({
   className,
   activity,
   isSelected,

@@ -1,22 +1,16 @@
-import React from 'react';
-import classNames from 'classnames';
-
 import * as Icons from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { IconButton } from 'components/IconButton';
-import { ActivitiesList } from 'components/ActivitiesList';
 import { API, IActivity } from 'api';
-
+import classNames from 'classnames';
+import { ActivitiesList } from 'components/ActivitiesList';
+import React from 'react';
 import { Controls } from './Controls';
-
 import './OfferActivities.scss';
 
 interface IProps {
   className?: string;
 }
 
-export const OfferActivities = ({ className }: IProps) => {
+export const OfferActivities: React.FC<IProps> = ({ className }: IProps) => {
   const activities = API.useOfferActivities();
 
   const onRemoveSelectedFromList = (selected: Array<IActivity>) => {

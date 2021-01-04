@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-
 import * as Icons from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { Button } from 'components/Button';
+import { IActivity } from 'api';
+import classNames from 'classnames';
 import { Activity } from 'components/Activity';
 import { IconButton } from 'components/IconButton';
-import { IActivity } from 'api';
-
+import React, { useState } from 'react';
 import './ActivitiesList.scss';
 
 interface IControl {
@@ -25,7 +21,7 @@ interface IProps {
   controls?: Array<IControl>;
 }
 
-export const ActivitiesList = ({
+export const ActivitiesList: React.FC<IProps> = ({
   activities,
   className,
   header,

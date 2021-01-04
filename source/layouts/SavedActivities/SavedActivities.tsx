@@ -1,17 +1,15 @@
-import React from 'react';
-import classNames from 'classnames';
-
-import { Controls } from './Controls';
-import { ActivitiesList } from 'components/ActivitiesList';
 import { API, IActivity } from 'api';
-
+import classNames from 'classnames';
+import { ActivitiesList } from 'components/ActivitiesList';
+import React from 'react';
+import { Controls } from './Controls';
 import './SavedActivities.scss';
 
 interface IProps {
   className?: string;
 }
 
-export const SavedActivities = ({ className }: IProps) => {
+export const SavedActivities: React.FC<IProps> = ({ className }: IProps) => {
   const activities = API.useSavedActivities();
 
   const onRemoveSelected = (activities: Array<IActivity>) => {

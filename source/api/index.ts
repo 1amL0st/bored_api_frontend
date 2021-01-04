@@ -1,17 +1,14 @@
 import { useSelector } from 'react-redux';
-
-import {
-  ActionAddSavedActivities,
-  ActionRemoveSavedActivities,
-  ActionClearSavedActivities,
-  ActionAddOfferActivity,
-  ActionClearOfferActivities,
-  ActionRemoveOfferActivities,
-} from 'store/actions/Activities';
-
-import { ActionShouldShowWelcomeWindow } from 'store/actions/Session';
-
 import { AppStore } from 'store';
+import {
+  ActionAddOfferActivity,
+  ActionAddSavedActivities,
+  ActionClearOfferActivities,
+  ActionClearSavedActivities,
+  ActionRemoveOfferActivities,
+  ActionRemoveSavedActivities,
+} from 'store/actions/Activities';
+import { ActionShouldShowWelcomeWindow } from 'store/actions/Session';
 import { IAppStore } from 'store/reducers/RootReducer';
 
 export const ActivityTypes = [
@@ -57,7 +54,7 @@ export const API = {
     };
   },
 
-  fetchActivity() {
+  fetchActivity(): void {
     const url = 'https://www.boredapi.com/api/activity/';
     fetch(url).then((response) => {
       response.json().then((json: ServerResponse) => {
@@ -68,7 +65,7 @@ export const API = {
     });
   },
 
-  clearSavedActivities() {
+  clearSavedActivities(): void {
     AppStore.dispatch(ActionClearSavedActivities());
   },
 
@@ -84,11 +81,11 @@ export const API = {
     });
   },
 
-  clearOfferActivities() {
+  clearOfferActivities(): void {
     AppStore.dispatch(ActionClearOfferActivities());
   },
 
-  setShouldShowWelcomeWindow(shouldShow: boolean) {
+  setShouldShowWelcomeWindow(shouldShow: boolean): void {
     AppStore.dispatch(ActionShouldShowWelcomeWindow(shouldShow));
   },
 
@@ -96,15 +93,15 @@ export const API = {
     return AppStore.getState().Session.shouldShowWelcomeWindow;
   },
 
-  removeOfferActivities(activities: Array<IActivity>) {
+  removeOfferActivities(activities: Array<IActivity>): void {
     AppStore.dispatch(ActionRemoveOfferActivities(activities));
   },
 
-  removeSavedActivities(activities: Array<IActivity>) {
+  removeSavedActivities(activities: Array<IActivity>): void {
     AppStore.dispatch(ActionRemoveSavedActivities(activities));
   },
 
-  addSavedActivities(activities: Array<IActivity>) {
+  addSavedActivities(activities: Array<IActivity>): void {
     AppStore.dispatch(ActionAddSavedActivities(activities));
-  }
+  },
 };

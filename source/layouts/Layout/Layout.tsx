@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
-
-import { View } from 'layouts/View';
-
-import { Button } from 'components/Button';
+import { API } from 'api';
 import { Checkbox } from 'components/Checkbox';
 import { PopUpWindow } from 'components/PopUpWindow';
-
-import { API } from 'api';
-
-import WelcomeGif from 'assets/welcome.gif';
-
+import { View } from 'layouts/View';
+import React, { useState } from 'react';
 import './Layout.scss';
 
-export const Layout = () => {
+const WelcomeGif = require('assets/welcome.gif').default;
+
+export const Layout: React.FC = () => {
   const [isWindowOpen, setWindowOpen] = useState(
     API.getShouldShowWelcomeWindow()
   );

@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import classNames from 'classnames';
-
 import { Button } from 'components/Button';
-
+import React from 'react';
 import './PopUpWindow.scss';
 
 interface IProps {
@@ -12,7 +10,7 @@ interface IProps {
   onClose: () => void;
 }
 
-export const PopUpWindow = ({
+export const PopUpWindow: React.FC<IProps> = ({
   className,
   onClose,
   children,

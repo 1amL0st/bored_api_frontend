@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import classNames from 'classnames';
-
+import React, { useState } from 'react';
 import './Checkbox.scss';
 
 interface IProps {
@@ -9,7 +8,7 @@ interface IProps {
   onCheck: (checked: boolean) => void;
 }
 
-export const Checkbox = ({ className, onCheck, label }: IProps) => {
+export const Checkbox: React.FC<IProps> = ({ className, onCheck, label }: IProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const checkHandler = () => {

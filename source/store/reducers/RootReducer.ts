@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-
 import { activitiesReducer, IActivitiesStore } from './Activities';
 import { ISessionStore, sessionReducer } from './Session';
 

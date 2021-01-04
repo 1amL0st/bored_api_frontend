@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-      "noImplicitAny": true,
-      "removeComments": true,
-      "jsx": "react",
-      "module": "ES2015",
-      "moduleResolution": "node",
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": "./",
-      "paths": {
-        "store/*": ["./source/store/*"],
-        "store": ["./source/store"],
-        "api/*": ["./source/api/*"],
-        "api": ["./source/api"],
-        "layouts/*": ["./source/layouts/*"],
-        "components": ["./source/copmponents"],
-        "components/*": ["./source/components/*"],
-        "routes": ["./source/routes"]
-      }
+    "noImplicitAny": true,
+    "removeComments": true,
+    "jsx": "react",
+    "module": "ES2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "store/*": ["./source/store/*"],
+      "store": ["./source/store"],
+      "api/*": ["./source/api/*"],
+      "api": ["./source/api"],
+      "layouts/*": ["./source/layouts/*"],
+      "components": ["./source/copmponents"],
+      "components/*": ["./source/components/*"],
+      "routes": ["./source/routes"]
+    }
   },
   "exclude": [
     "node_modules",

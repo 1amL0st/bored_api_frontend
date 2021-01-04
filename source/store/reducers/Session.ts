@@ -1,7 +1,5 @@
-import { Session } from 'inspector';
 import {
   ACTION_TYPE_SET_SHOULD_SHOW_WELCOME_WINDOW,
-  IActionSetShouldShowWelcomeWindow,
   SessionActionType,
 } from '../actions/Session';
 

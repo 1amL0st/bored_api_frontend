@@ -1,15 +1,12 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-import { ROUTES } from 'routes';
 import { Header } from 'components/Header';
-
-import { SavedActivities } from 'layouts/SavedActivities';
 import { OfferActivities } from 'layouts/OfferActivities';
-
+import { SavedActivities } from 'layouts/SavedActivities';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { ROUTES } from 'routes';
 import './View.scss';
 
-export const View = () => {
+export const View: React.FC = () => {
   return (
     <div className="view">
       <Header />

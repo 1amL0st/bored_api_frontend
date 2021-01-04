@@ -1,5 +1,5 @@
-import { createStore, compose } from 'redux';
-import { rootReducer, IAppStore } from './reducers/RootReducer';
+import { compose, createStore } from 'redux';
+import { rootReducer } from './reducers/RootReducer';
 
 declare global {
   interface Window {
