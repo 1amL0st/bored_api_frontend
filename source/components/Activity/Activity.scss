@@ -1,0 +1,25 @@
+@import 'styles/_base';
+
+.activity {
+  @extend .flex-space-b-row;
+  align-items: center;
+
+  span {
+    width: 100%;
+  }
+
+  &-type {
+    @extend .flex-center-row;
+  }
+
+  &-type-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  &.is-selected {
+    background-color: rgb(225, 244, 250);
+  }
+}

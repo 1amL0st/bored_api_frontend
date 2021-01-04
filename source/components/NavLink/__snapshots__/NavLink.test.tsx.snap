@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Test Button test 1`] = `
+<a
+  aria-current={null}
+  className="nav-link"
+  href="/somewhere"
+  onClick={[Function]}
+>
+  Button
+</a>
+`;
+
+exports[`My Test Button with child div 1`] = `
+<a
+  aria-current={null}
+  className="nav-link"
+  href="/somewhere"
+  onClick={[Function]}
+>
+  <div>
+    Hello
+  </div>
+</a>
+`;
+
+exports[`NavLink component tests Div as child 1`] = `
+<a
+  aria-current={null}
+  className="nav-link"
+  href="/somewhere"
+  onClick={[Function]}
+>
+  <div>
+    Hello
+  </div>
+</a>
+`;
+
+exports[`NavLink component tests Plain text as child 1`] = `
+<a
+  aria-current={null}
+  className="nav-link"
+  href="/somewhere"
+  onClick={[Function]}
+>
+  Button
+</a>
+`;

@@ -1,0 +1,19 @@
+.button {
+  background-color: lightgray;
+  color: black;
+  padding: 0.7em;
+
+  min-width: 128px;
+  min-height: 32px;
+
+  border-radius: 16px;
+  outline: none;
+  border: none;
+
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

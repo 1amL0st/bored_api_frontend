@@ -1,0 +1,9 @@
+@import 'styles/_base';
+
+.saved-activities {
+  @extend .flex-start-column;
+  
+  &-wrapper {
+    height: 512px;
+  }
+}

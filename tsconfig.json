@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+      "noImplicitAny": true,
+      "removeComments": true,
+      "jsx": "react",
+      "module": "ES2015",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "paths": {
+      }
+  },
+  "exclude": [
+    "node_modules",
+    "*.test.tsx"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+      /* ... */
+  }
+}

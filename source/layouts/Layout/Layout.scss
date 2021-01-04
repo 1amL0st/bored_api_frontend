@@ -1,0 +1,13 @@
+@import 'styles/_base';
+
+.layout {
+  width: 100%;
+
+  .welcome-window {
+    @extend .flex-start-column;
+
+    &-checkbox {
+      margin: 16px 0 16px 0;
+    }
+  }
+}

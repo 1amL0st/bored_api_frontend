@@ -1,0 +1,15 @@
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  border-radius: 50%;
+
+  outline: none;
+  border: none;
+
+  background-color: lightgray;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

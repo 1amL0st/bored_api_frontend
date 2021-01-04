@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Test Button test 1`] = `
+<button
+  className="button"
+>
+  Button
+</button>
+`;
+
+exports[`My Test Button with child div 1`] = `
+<button
+  className="button"
+>
+  <div>
+    Hello
+  </div>
+</button>
+`;

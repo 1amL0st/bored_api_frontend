@@ -1,0 +1,58 @@
+@import 'styles/_base';
+
+$control-transition-duration: 2s;
+
+.activities-list {
+  @extend .flex-start-column;
+  
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+
+  &-header {
+    @extend .flex-start-row;
+    padding: 16px 0 16px 0;
+  }
+
+  &-list {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  &-item {
+    flex-basis: 100%;;
+    border-bottom: 1px lightgray solid;
+    border-top: 1px lightgray solid;
+    padding: 8px 0 8px 0;
+  }
+
+  .controls {
+    position: absolute;
+    right: 0;
+
+    &.visible {
+      visibility: hidden;
+    }
+  }
+
+  .selection-controls {
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+
+    transition: all $control-transition-duration;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+    .icon-btn {
+      margin: 0 8px 0 8px;
+    }
+
+    &.visible {
+      transform: translateX(0%);
+    }
+  }
+
+  &-selected-count {
+    padding: 0 8px 0 8px;
+  }
+}

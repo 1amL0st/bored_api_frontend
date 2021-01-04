@@ -1,0 +1,17 @@
+@import 'styles/_base';
+
+.checkbox {
+  @extend .flex-center-row;
+  align-items: flex-end;
+  vertical-align: middle;
+
+  font-size: 16px;
+
+  &-label {
+    line-height: 13px;
+  }
+
+  &-input {
+    margin-right: 0.4em;
+  }
+}

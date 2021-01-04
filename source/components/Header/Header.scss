@@ -1,0 +1,21 @@
+@import 'styles/_base';
+
+.header {
+  @extend .flex-space-b-row;
+
+  padding: 16px;
+
+  .nav-link {
+    margin: 0 16px 0 16px;
+  }
+
+  &-stats, &-links {
+    @extend .flex-center-row;
+  }
+
+  &-stats {
+    span {
+      margin: 0 16px 0 16px;
+    }
+  }
+}
