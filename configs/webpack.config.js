@@ -80,7 +80,13 @@ module.exports = function moduleGenerator(mode) {
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.js'],
       alias: {
-        // 'assets': path.resolve(__dirname, '../public/assets/'),
+        'assets': path.resolve(__dirname, '../source/assets/'),
+        'api': path.resolve(__dirname, '../source/api/'),
+        'store': path.resolve(__dirname, '../source/store/'),
+        'styles': path.resolve(__dirname, '../source/styles/'),
+        'layouts': path.resolve(__dirname, '../source/layouts/'),
+        'components': path.resolve(__dirname, '../source/components/'),
+        'routes': path.resolve(__dirname, '../source/routes'),
       }
     },
 

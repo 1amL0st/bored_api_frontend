@@ -1,4 +1,4 @@
-import { Activity, IActivity } from 'api';
+import { IActivity } from 'api';
 
 export const ACTION_TYPE_ADD_SAVED_ACTIVITIES = 'ADD_SAVED_ACTIVITIES';
 export const ACTION_TYPE_CLEAR_SAVED_ACTIVITIES = 'CLEAR_SAVED_ACTIVITIES';
@@ -6,7 +6,7 @@ export const ACTION_TYPE_REMOVE_SAVED_ACTIVITIES = 'REMOVE_SAVED_ACTIVITIES';
 
 export interface IAddSavedActivities {
   type: string;
-  activities: Array<Activity>;
+  activities: Array<IActivity>;
 }
 
 export interface IClearSavedActivities {
@@ -19,7 +19,7 @@ export interface IRemoveSavedActivities {
 }
 
 export function ActionAddSavedActivities(
-  activities: Array<Activity>
+  activities: Array<IActivity>
 ): IAddSavedActivities {
   return {
     type: ACTION_TYPE_ADD_SAVED_ACTIVITIES,
@@ -57,7 +57,7 @@ export interface IClearOfferActivities {
 
 export interface IAddOfferActivity {
   type: string;
-  activities: Array<Activity>;
+  activities: Array<IActivity>;
 }
 
 export function ActionRemoveOfferActivities(
@@ -76,7 +76,7 @@ export function ActionClearOfferActivities(): IClearOfferActivities {
 }
 
 export function ActionAddOfferActivity(
-  activities: Array<Activity>
+  activities: Array<IActivity>
 ): IAddOfferActivity {
   return {
     type: ACTION_TYPE_ADD_OFFERS_ACTIVITY,
