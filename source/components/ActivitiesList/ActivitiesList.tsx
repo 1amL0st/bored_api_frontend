@@ -69,7 +69,11 @@ export const ActivitiesList: React.FC<IProps> = ({
       className="controls-button"
       title="Move selected activies to saved"
       key={1}
-      onClick={() => control.callback(selected)}
+      onClick={() => {
+        // TODO: This looks like very bad idea....
+        control.callback(selected);
+        setSelected([]);
+      }}
     >
       <FontAwesomeIcon icon={control.icon} />
     </IconButton>

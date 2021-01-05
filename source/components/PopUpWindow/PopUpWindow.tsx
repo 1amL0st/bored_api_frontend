@@ -26,15 +26,17 @@ export const PopUpWindow: React.FC<IProps> = ({
     }
   };
 
+  const closeButton = onClose ? (
+    <Button className="pop-up-window-close-btn" onClick={onCloseBtnClick}>
+      {closeBtnText || 'Close'}
+    </Button>
+  ) : null;
+
   return (
     <div className={classNames('pop-up-window', className)}>
       <div className="pop-up-window-content" onClick={onContentClick}>
-        {children}
-        {onClose ? (
-          <Button className="pop-up-window-close-btn" onClick={onCloseBtnClick}>
-            {closeBtnText || 'Close'}
-          </Button>
-        ) : null}
+        <div className="pop-up-window-children">{children}</div>
+        {closeButton}
       </div>
     </div>
   );

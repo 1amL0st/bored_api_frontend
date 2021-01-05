@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ActivityType, API } from 'api';
 import classNames from 'classnames';
 import { IconButton } from 'components/IconButton';
-import { PopUpWindow } from 'components/PopUpWindow';
 import React, { useState } from 'react';
+import { SearchWindow } from '../SearchWindow';
 import './Controls.scss';
 
 interface IProps {
@@ -17,52 +17,19 @@ enum SearchStage {
   failed,
 }
 
-interface ISearchWindowProps {
-  stage: SearchStage;
-  closeCallback: () => void;
-}
-
-const SearchWindow: React.FC<ISearchWindowProps> = ({
-  stage,
-  closeCallback,
-}: ISearchWindowProps) => {
-  if (stage !== SearchStage.none) {
-    if (stage === SearchStage.searching) {
-      return (
-        <PopUpWindow>
-          <div className="searching-window">
-            <span>
-              We're searching for new activity
-              <br />
-              ...
-            </span>
-          </div>
-        </PopUpWindow>
-      );
-    } else {
-      return (
-        <PopUpWindow closeBtnText="Close" onClose={closeCallback}>
-          <div className="searching-window">
-            <span>We couldn't find</span>
-          </div>
-        </PopUpWindow>
-      );
-    }
-  } else {
-    return null;
-  }
-};
-
 export const Controls: React.FC<IProps> = ({ className }: IProps) => {
   const [searchStage, setSearchStage] = useState(SearchStage.none);
   const [selectedType, setSelectedType] = useState('any');
 
-  const onGetRandomActivityBtn = () => {
+  async function onGetRandomActivityBtn() {
     setSearchStage(SearchStage.searching);
-    API.seachActivity(selectedType as ActivityType)
-      .then(() => setSearchStage(SearchStage.none))
-      .catch(() => setSearchStage(SearchStage.failed));
-  };
+    try {
+      await API.searchActivity(selectedType as ActivityType);
+      setSearchStage(SearchStage.none);
+    } catch (error) {
+      setSearchStage(SearchStage.failed);
+    }
+  }
 
   const onSelectChange = (
     event: React.ChangeEvent<HTMLSelectElement>

@@ -24,3 +24,9 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+.flex-space-b-column {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}

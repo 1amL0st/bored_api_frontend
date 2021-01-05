@@ -1,7 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
   ],
 
   "extends": [
@@ -21,11 +21,11 @@
   },
 
   "rules": {
-    "no-console": "off",
     "react/no-unescaped-entities": "off",
-    "linebreak-style": 0,
-    "no-unused-vars": ["warn", { "vars": "local", "args": "none", "ignoreRestSiblings": false }],
     "react/jsx-props-no-spreading": "off",
+    "no-console": "off",
+    "linebreak-style": 0,
+    "no-unused-vars": "off",
     "import/no-unresolved": "off",
     "object-curly-newline": ["error", {
       "ImportDeclaration": "never"

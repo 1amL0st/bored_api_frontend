@@ -53,57 +53,36 @@ export const API = {
   },
 
   async fetchActivity(type: ActivityType | 'any'): Promise<IActivity> {
-    return new Promise<IActivity>((resolve, reject) => {
-      let url = 'https://www.boredapi.com/api/activity?';
-      const params = new URLSearchParams({
+    const url =
+      'https://www.boredapi.com/api/activity?' +
+      new URLSearchParams({
         type: type === 'any' ? '' : type,
       }).toString();
-      url += params;
-
-      fetch(url).then((response) => {
-        response.json().then((json: ServerResponse) => {
-          resolve(API.castServerResponseToActivity(json));
-        });
-      });
-    });
+    const json = await (await fetch(url)).json();
+    return API.castServerResponseToActivity(json);
   },
 
-  seachActivity(type: ActivityType | 'any'): Promise<void> {
-    return new Promise((resolve, reject) => {
-      let url = 'https://www.boredapi.com/api/activity?';
-      const params = new URLSearchParams({
-        type: type === 'any' ? '' : type,
-      }).toString();
-      url += params;
+  async searchActivity(type: ActivityType | 'any'): Promise<void> {
+    let count = 0;
+    async function closure() {
+      const activity = await API.fetchActivity(type);
+      const exists =
+        AppStore.getState().Activities.offers.some(
+          (a) => a.name === activity.name
+        ) ||
+        AppStore.getState().Activities.saved.some(
+          (a) => a.name === activity.name
+        );
+      if (exists) {
+        if (count === 10) throw new Error('Cant find new activity!');
+        count++;
+        await closure();
+      } else {
+        AppStore.dispatch(ActionAddOfferActivity([activity]));
+      }
+    }
 
-      let count = 0;
-      const f = (): Promise<void> => {
-        return new Promise<void>(() => {
-          API.fetchActivity(type).then((activity) => {
-            const exists =
-              AppStore.getState().Activities.offers.some(
-                (a) => a.name === activity.name
-              ) ||
-              AppStore.getState().Activities.saved.some(
-                (a) => a.name === activity.name
-              );
-            if (exists) {
-              ++count;
-              if (count < 10) {
-                f();
-              } else {
-                reject();
-              }
-            } else {
-              AppStore.dispatch(ActionAddOfferActivity([activity]));
-              resolve();
-            }
-          });
-        });
-      };
-
-      f();
-    });
+    return await closure();
   },
 
   clearSavedActivities(): void {
