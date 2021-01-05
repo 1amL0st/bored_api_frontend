@@ -1,5 +1,9 @@
 @import 'styles/_base';
 
-.offer-activities-controls {
+.control-panel {
   @extend .flex-start-row;
+
+  &-select {
+    margin-left: 16px;
+  }
 }

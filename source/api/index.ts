@@ -52,8 +52,13 @@ export const API = {
     };
   },
 
-  fetchActivity(): void {
-    const url = 'https://www.boredapi.com/api/activity/';
+  fetchActivity(type: string): void {
+    let url = 'https://www.boredapi.com/api/activity?';
+    const params = new URLSearchParams({
+      type: type === 'any' ? '' : type,
+    }).toString();
+    url += params;
+
     fetch(url).then((response) => {
       response.json().then((json: ServerResponse) => {
         AppStore.dispatch(
