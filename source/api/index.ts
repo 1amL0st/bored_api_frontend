@@ -15,7 +15,7 @@ export enum ActivityType {
   social = 'social',
   diy = 'diy',
   charity = 'charity',
-  cooking ='cooking',
+  cooking = 'cooking',
   relaxation = 'relaxation',
   music = 'music',
   busywork = 'busywork',
@@ -52,19 +52,57 @@ export const API = {
     };
   },
 
-  fetchActivity(type: string): void {
-    let url = 'https://www.boredapi.com/api/activity?';
-    const params = new URLSearchParams({
-      type: type === 'any' ? '' : type,
-    }).toString();
-    url += params;
+  async fetchActivity(type: ActivityType | 'any'): Promise<IActivity> {
+    return new Promise<IActivity>((resolve, reject) => {
+      let url = 'https://www.boredapi.com/api/activity?';
+      const params = new URLSearchParams({
+        type: type === 'any' ? '' : type,
+      }).toString();
+      url += params;
 
-    fetch(url).then((response) => {
-      response.json().then((json: ServerResponse) => {
-        AppStore.dispatch(
-          ActionAddOfferActivity([API.castServerResponseToActivity(json)])
-        );
+      fetch(url).then((response) => {
+        response.json().then((json: ServerResponse) => {
+          resolve(API.castServerResponseToActivity(json));
+        });
       });
+    });
+  },
+
+  seachActivity(type: ActivityType | 'any'): Promise<void> {
+    return new Promise((resolve, reject) => {
+      let url = 'https://www.boredapi.com/api/activity?';
+      const params = new URLSearchParams({
+        type: type === 'any' ? '' : type,
+      }).toString();
+      url += params;
+
+      let count = 0;
+      const f = (): Promise<void> => {
+        return new Promise<void>(() => {
+          API.fetchActivity(type).then((activity) => {
+            const exists =
+              AppStore.getState().Activities.offers.some(
+                (a) => a.name === activity.name
+              ) ||
+              AppStore.getState().Activities.saved.some(
+                (a) => a.name === activity.name
+              );
+            if (exists) {
+              ++count;
+              if (count < 10) {
+                f();
+              } else {
+                reject();
+              }
+            } else {
+              AppStore.dispatch(ActionAddOfferActivity([activity]));
+              resolve();
+            }
+          });
+        });
+      };
+
+      f();
     });
   },
 

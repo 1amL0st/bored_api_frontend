@@ -1,11 +1,7 @@
-import { IActivity, ActivityType } from 'api';
+import { ActivityType, IActivity } from 'api';
 import classNames from 'classnames';
 import React from 'react';
 import './Activity.scss';
-
-interface Color {
-  [name: string]: string;
-}
 
 const TypeColorMap = new Map<ActivityType, string>([
   [ActivityType.education, '#d8221c'],

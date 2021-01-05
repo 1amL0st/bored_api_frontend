@@ -81,7 +81,7 @@ module.exports = function moduleGenerator(mode) {
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.js'],
       alias: {
-        'assets': path.resolve(__dirname, '../source/assets/'),
+        'assets': path.resolve(__dirname, '../assets/'),
         'api': path.resolve(__dirname, '../source/api/'),
         'store': path.resolve(__dirname, '../source/store/'),
         'styles': path.resolve(__dirname, '../source/styles/'),
