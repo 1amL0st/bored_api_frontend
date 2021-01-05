@@ -1,4 +1,4 @@
-import { IActivity } from 'api';
+import { IActivity, ActivityType } from 'api';
 import classNames from 'classnames';
 import React from 'react';
 import './Activity.scss';
@@ -7,17 +7,17 @@ interface Color {
   [name: string]: string;
 }
 
-const ActivityTypeColorMap: Color = {
-  education: '#d8221c',
-  recreational: '#a5fe77',
-  social: '#318ccd',
-  diy: '#d5c9a6',
-  charity: '#b773ae',
-  cooking: '#d5b8b6',
-  relaxation: '#dcc910',
-  music: '#ddfb7b',
-  busywork: '#a69d53',
-};
+const TypeColorMap = new Map<ActivityType, string>([
+  [ActivityType.education, '#d8221c'],
+  [ActivityType.recreational, '#a5fe77'],
+  [ActivityType.social, '#318ccd'],
+  [ActivityType.diy, '#d5c9a6'],
+  [ActivityType.charity, '#b773ae'],
+  [ActivityType.cooking, '#d5b8b6'],
+  [ActivityType.relaxation, '#dcc910'],
+  [ActivityType.music, '#ddfb7b'],
+  [ActivityType.busywork, '#a69d53'],
+]);
 
 interface IProps {
   className?: string;
@@ -33,7 +33,7 @@ export const Activity: React.FC<IProps> = ({
   onClick,
 }: IProps) => {
   const typeStyle: React.CSSProperties = {
-    backgroundColor: `${ActivityTypeColorMap[activity.type]}`,
+    backgroundColor: `${TypeColorMap.get(activity.type as ActivityType)}`,
   };
 
   const onClickHandler = () => {

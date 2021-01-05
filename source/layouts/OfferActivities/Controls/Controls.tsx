@@ -1,6 +1,6 @@
 import * as Icons from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ActivityTypes, API } from 'api';
+import { ActivityType, API } from 'api';
 import classNames from 'classnames';
 import { IconButton } from 'components/IconButton';
 import React, { useState } from 'react';
@@ -26,7 +26,7 @@ export const Controls: React.FC<IProps> = ({ className }: IProps) => {
   const select = (
     <select className="control-panel-select" onChange={onSelectChange}>
       <option>any</option>
-      {ActivityTypes.map((type) => (
+      {Object.keys(ActivityType).map((type) => (
         <option key={type}>{type}</option>
       ))}
     </select>

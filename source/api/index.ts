@@ -9,21 +9,21 @@ import {ActionAddOfferActivity,
 import { ActionShouldShowWelcomeWindow } from 'store/actions/Session';
 import { IAppStore } from 'store/reducers/RootReducer';
 
-export const ActivityTypes = [
-  'education',
-  'recreational',
-  'social',
-  'diy',
-  'charity',
-  'cooking',
-  'relaxation',
-  'music',
-  'busywork',
-];
+export enum ActivityType {
+  education = 'education',
+  recreational = 'recreational',
+  social = 'social',
+  diy = 'diy',
+  charity = 'charity',
+  cooking ='cooking',
+  relaxation = 'relaxation',
+  music = 'music',
+  busywork = 'busywork',
+}
 
 export interface IActivity {
   name: string;
-  type: string;
+  type: ActivityType;
   accessibility: number;
   participants: number;
   price: number;
@@ -32,7 +32,7 @@ export interface IActivity {
 
 export interface ServerResponse {
   activity: string;
-  type: string;
+  type: ActivityType;
   participants: number;
   price: number;
   link: string;
