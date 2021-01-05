@@ -15,6 +15,6 @@ const App: React.FC = () => {
       </Provider>
     </div>
   );
-}
+};
 
 export default App;

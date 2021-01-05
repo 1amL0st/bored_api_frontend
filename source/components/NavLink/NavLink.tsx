@@ -10,7 +10,12 @@ interface IProps {
   className?: string;
 }
 
-export const NavLink: React.FC<IProps> = ({ to, exact, children, className }: IProps) => {
+export const NavLink: React.FC<IProps> = ({
+  to,
+  exact,
+  children,
+  className,
+}: IProps) => {
   return (
     <BaseLink
       className={classNames('nav-link', className)}

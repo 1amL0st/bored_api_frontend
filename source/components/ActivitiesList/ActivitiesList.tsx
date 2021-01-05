@@ -34,7 +34,7 @@ export const ActivitiesList: React.FC<IProps> = ({
   const listIsEmpty = activities.length === 0;
 
   const onActivityItemClick = (activity: IActivity) => {
-    if (selected.includes(activity)) {
+    if (selected.some((a) => a.name === activity.name)) {
       setSelected(selected.filter((a) => a !== activity));
     } else {
       setSelected([...selected, activity]);
@@ -60,7 +60,7 @@ export const ActivitiesList: React.FC<IProps> = ({
       className="activities-list-item"
       activity={activity}
       onClick={onActivityItemClick}
-      isSelected={selected.includes(activity)}
+      isSelected={selected.some((a) => a.name === activity.name)}
     />
   ));
 
@@ -122,6 +122,21 @@ export const ActivitiesList: React.FC<IProps> = ({
           {buttons}
         </div>
       </div>
+      {listIsEmpty ? null : (
+        <div className="activities-list-list-header">
+          <span title="Activity name">Name</span>
+          <span title="Activity type">Type</span>
+          <span title="The number of people that this activity could involve">
+            Participants
+          </span>
+          <span title="A factor describing how possible an event is to do with zero being the most accessible">
+            Accessibility
+          </span>
+          <span title="A factor describing the cost of the event with zero being free">
+            Price
+          </span>
+        </div>
+      )}
       <div className="activities-list-list">{items}</div>
     </div>
   );

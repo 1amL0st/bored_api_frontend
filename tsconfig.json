@@ -3,6 +3,7 @@
     "noImplicitAny": true,
     "removeComments": true,
     "jsx": "react",
+    "target": "ES6",
     "module": "ES2015",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -16,7 +17,10 @@
       "components": ["./source/copmponents"],
       "components/*": ["./source/components/*"],
       "routes": ["./source/routes"]
-    }
+    },
+    "typeRoots": [
+      "./custom_typings"
+    ]
   },
   "exclude": [
     "node_modules",

@@ -17,6 +17,10 @@ $control-transition-duration: 2s;
   &-list {
     height: 100%;
     overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &-item {
@@ -24,6 +28,17 @@ $control-transition-duration: 2s;
     border-bottom: 1px lightgray solid;
     border-top: 1px lightgray solid;
     padding: 8px 0 8px 0;
+  }
+
+  &-list-header {
+    @extend .flex-space-b-row;
+    width: 100%;
+    padding: 16px 0 16px 0;
+
+    span {
+      width: 100%;
+      font-weight: bold;
+    }
   }
 
   .controls {

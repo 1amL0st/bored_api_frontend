@@ -8,7 +8,11 @@ interface IProps {
   onChange(isChecked: boolean): void;
 }
 
-export const Checkbox: React.FC<IProps> = ({ className, onChange: onCheck, label }: IProps) => {
+export const Checkbox: React.FC<IProps> = ({
+  className,
+  onChange: onCheck,
+  label,
+}: IProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const checkHandler = () => {

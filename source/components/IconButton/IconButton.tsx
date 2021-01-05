@@ -9,6 +9,9 @@ interface IProps {
   title?: string;
 }
 
-export const IconButton: React.FC<IProps> = ({ className, ...props }: IProps) => {
+export const IconButton: React.FC<IProps> = ({
+  className,
+  ...props
+}: IProps) => {
   return <button {...props} className={classNames('icon-btn', className)} />;
 };

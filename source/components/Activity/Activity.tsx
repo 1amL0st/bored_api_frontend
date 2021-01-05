@@ -49,19 +49,13 @@ export const Activity: React.FC<IProps> = ({
       })}
       onClick={onClickHandler}
     >
-      <span title="Activity name">{activity.name}</span>
-      <span className="activity-type" title={`Type: ${activity.type}`}>
+      <span>{activity.name}</span>
+      <span className="activity-type" title={`${activity.type}`}>
         <div className="activity-type-indicator" style={typeStyle} />
       </span>
-      <span title="The number of people that this activity could involve">
-        {activity.participants}
-      </span>
-      <span title="A factor describing how possible an event is to do with zero being the most accessible">
-        {activity.accessibility}
-      </span>
-      <span title="A factor describing the cost of the event with zero being free">
-        {activity.price}
-      </span>
+      <span>{activity.participants}</span>
+      <span>{activity.accessibility}</span>
+      <span>{activity.price}</span>
     </div>
   );
 };
