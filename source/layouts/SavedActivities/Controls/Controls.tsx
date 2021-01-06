@@ -1,6 +1,6 @@
-import { API } from 'api';
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
+
 import './Controls.scss';
 
 interface IProps {
@@ -8,9 +8,5 @@ interface IProps {
 }
 
 export const Controls: React.FC<IProps> = ({ className }: IProps) => {
-  const onClearBtnClick = () => {
-    API.clearSavedActivities();
-  };
-
   return <div className={classNames('activites-controls', className)}></div>;
 };

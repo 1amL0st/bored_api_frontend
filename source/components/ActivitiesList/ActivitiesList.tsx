@@ -1,10 +1,13 @@
-import { IActivity } from 'api';
-import classNames from 'classnames';
 import React, { useState } from 'react';
-import './ActivitiesList.scss';
+import classNames from 'classnames';
+
+import { IActivity } from 'api';
+
 import { List } from './List';
-import { ListControls } from './ListControls';
+import { ListControls, FilterType } from './ListControls';
 import { IControl, SelectionControls } from './SelectionControls';
+
+import './ActivitiesList.scss';
 
 interface IProps {
   activities: Array<IActivity>;
@@ -22,6 +25,7 @@ export const ActivitiesList: React.FC<IProps> = ({
   controls,
 }: IProps) => {
   const [selected, setSelected] = useState(new Array<IActivity>());
+  const [filter, setFilter] = useState(FilterType.None);
 
   const someSelected = selected.length !== 0;
   const listIsEmpty = activities.length === 0;
@@ -56,6 +60,7 @@ export const ActivitiesList: React.FC<IProps> = ({
           listIsEmpty={listIsEmpty}
           someSelected={someSelected}
           onRemoveAllActivitiesBtn={onRemoveAllActivitiesBtn}
+          selectFilter={(filter: FilterType) => setFilter(filter)}
         />
 
         <SelectionControls
@@ -68,6 +73,7 @@ export const ActivitiesList: React.FC<IProps> = ({
       </div>
 
       <List
+        filter={filter}
         activities={activities}
         selected={selected}
         onSelectActivity={onSelectActivity}

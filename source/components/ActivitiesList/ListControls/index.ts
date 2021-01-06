@@ -1,1 +1,1 @@
-export { ListControls } from './ListControls';
+export { ListControls, FilterType } from './ListControls';

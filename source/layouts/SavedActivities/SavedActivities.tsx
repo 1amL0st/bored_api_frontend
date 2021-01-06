@@ -1,7 +1,10 @@
-import { API, IActivity } from 'api';
-import classNames from 'classnames';
-import { ActivitiesList } from 'components/ActivitiesList';
 import React from 'react';
+import classNames from 'classnames';
+
+import { API, IActivity } from 'api';
+
+import { ActivitiesList } from 'components/ActivitiesList';
+
 import { Controls } from './Controls';
 import './SavedActivities.scss';
 

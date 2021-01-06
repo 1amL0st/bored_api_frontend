@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IActivity } from 'api';
 import { IconButton } from 'components/IconButton';
 
+import './SelectionControls.scss';
+
 export interface IControl {
   icon: Icons.IconDefinition;
   callback: (selected: Array<IActivity>) => void;
@@ -45,11 +47,11 @@ export const SelectionControls: React.FC<IProps> = ({
 
   return (
     <div
-      className={classNames('selection-controls', {
+      className={classNames('activities-list-selection-controls', {
         visible: someSelected,
       })}
     >
-      <span className="activities-list-selected-count">{selected.length}</span>
+      <span className="selected-count">{selected.length}</span>
       <IconButton
         className="controls-button"
         title="Unselect all selected activities"

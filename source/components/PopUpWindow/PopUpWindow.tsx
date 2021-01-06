@@ -1,6 +1,8 @@
-import classNames from 'classnames';
-import { Button } from 'components/Button';
 import React from 'react';
+import classNames from 'classnames';
+
+import { Button } from 'components/Button';
+
 import './PopUpWindow.scss';
 
 interface IProps {
