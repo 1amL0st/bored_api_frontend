@@ -1,5 +1,6 @@
 import { IActivity } from 'api';
-import {ActionType,
+import {
+  ActionType,
   ACTION_TYPE_ADD_OFFERS_ACTIVITY,
   ACTION_TYPE_ADD_SAVED_ACTIVITIES,
   ACTION_TYPE_CLEAR_OFFERS_ACTIVITIES,
@@ -9,7 +10,8 @@ import {ActionType,
   IAddOfferActivity,
   IAddSavedActivities,
   IRemoveOfferActivities,
-  IRemoveSavedActivities,} from '../actions/Activities';
+  IRemoveSavedActivities,
+} from '../actions/Activities';
 
 export interface IActivitiesStore {
   saved: Array<IActivity>;

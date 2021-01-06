@@ -1,6 +1,8 @@
-import { ActivityType, IActivity } from 'api';
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
+
+import { ActivityType, IActivity } from 'api';
+
 import './Activity.scss';
 
 const TypeColorMap = new Map<ActivityType, string>([

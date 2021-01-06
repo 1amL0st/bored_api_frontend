@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
 import { AppStore } from 'store';
-import {ActionAddOfferActivity,
+import {
+  ActionAddOfferActivity,
   ActionAddSavedActivities,
   ActionClearOfferActivities,
   ActionClearSavedActivities,
   ActionRemoveOfferActivities,
-  ActionRemoveSavedActivities,} from 'store/actions/Activities';
+  ActionRemoveSavedActivities,
+} from 'store/actions/Activities';
 import { ActionShouldShowWelcomeWindow } from 'store/actions/Session';
 import { IAppStore } from 'store/reducers/RootReducer';
 

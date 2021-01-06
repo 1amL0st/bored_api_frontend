@@ -1,8 +1,11 @@
-import { API } from 'api';
-import classNames from 'classnames';
-import { NavLink } from 'components/NavLink';
 import React from 'react';
+import classNames from 'classnames';
+
+import { API } from 'api';
 import { ROUTES } from 'routes';
+
+import { NavLink } from 'components/NavLink';
+
 import './Header.scss';
 
 interface IProps {

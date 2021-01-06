@@ -1,5 +1,7 @@
-import {ACTION_TYPE_SET_SHOULD_SHOW_WELCOME_WINDOW,
-  SessionActionType,} from '../actions/Session';
+import {
+  ACTION_TYPE_SET_SHOULD_SHOW_WELCOME_WINDOW,
+  SessionActionType,
+} from '../actions/Session';
 
 export interface ISessionStore {
   shouldShowWelcomeWindow: boolean;

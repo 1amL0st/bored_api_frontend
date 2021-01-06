@@ -1,9 +1,12 @@
-import * as Icons from '@fortawesome/free-solid-svg-icons';
-import { API, IActivity } from 'api';
-import classNames from 'classnames';
-import { ActivitiesList } from 'components/ActivitiesList';
 import React from 'react';
+import classNames from 'classnames';
+
+import * as Icons from '@fortawesome/free-solid-svg-icons';
+
+import { API, IActivity } from 'api';
+import { ActivitiesList } from 'components/ActivitiesList';
 import { Controls } from './Controls';
+
 import './OfferActivities.scss';
 
 interface IProps {

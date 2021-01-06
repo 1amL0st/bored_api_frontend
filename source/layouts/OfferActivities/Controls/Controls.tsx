@@ -1,9 +1,12 @@
+import React, { useState } from 'react';
+import classNames from 'classnames';
+
 import * as Icons from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { ActivityType, API } from 'api';
-import classNames from 'classnames';
 import { IconButton } from 'components/IconButton';
-import React, { useState } from 'react';
+
 import { SearchWindow } from '../SearchWindow';
 import './Controls.scss';
 

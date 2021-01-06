@@ -1,7 +1,9 @@
+import React from 'react';
+
+import { PopUpWindow } from 'components/PopUpWindow';
+
 import FailedSearchGif from 'assets/failed_search.gif';
 import SearchGif from 'assets/search.gif';
-import { PopUpWindow } from 'components/PopUpWindow';
-import React from 'react';
 
 enum SearchStage {
   none,
