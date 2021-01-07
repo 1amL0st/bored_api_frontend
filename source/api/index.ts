@@ -27,7 +27,7 @@ export interface IActivity {
   accessibility: number;
   participants: number;
   price: number;
-  addDate: Date;
+  addDate: string;
 }
 
 export interface ServerResponse {
@@ -48,7 +48,7 @@ export const API = {
       participants: response.participants,
       type: response.type,
       price: response.price,
-      addDate: new Date(),
+      addDate: new Date().toString(),
     };
   },
 

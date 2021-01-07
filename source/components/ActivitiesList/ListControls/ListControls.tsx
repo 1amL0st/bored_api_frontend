@@ -21,23 +21,28 @@ interface IFilterProps {
   callback: (filter: FilterType) => void;
 }
 
-const FilterSelector: React.FC<IFilterProps> = ({
-  callback
-}: IFilterProps) => {
+const FilterSelector: React.FC<IFilterProps> = ({ callback }: IFilterProps) => {
   const [filter, setFilter] = useState(FilterType.None);
 
   const onBtnClick = () => {
     callback(filter);
-  }
+  };
 
   return (
     <div className="controls-filter">
-      <select className="controls-filter-checkbox" onChange={(e) => setFilter(e.target.value as FilterType)}>
+      <select
+        className="controls-filter-checkbox"
+        onChange={(e) => setFilter(e.target.value as FilterType)}
+      >
         {Object.keys(FilterType).map((filter) => (
           <option key={filter}>{filter}</option>
         ))}
       </select>
-      <IconButton className="controls-button" title="Filter this list" onClick={onBtnClick}>
+      <IconButton
+        className="controls-button"
+        title="Filter this list"
+        onClick={onBtnClick}
+      >
         {<FontAwesomeIcon icon={Icons.faFilter} />}
       </IconButton>
     </div>
@@ -55,9 +60,8 @@ export const ListControls: React.FC<IProps> = ({
   listIsEmpty,
   someSelected,
   onRemoveAllActivitiesBtn,
-  selectFilter
+  selectFilter,
 }: IProps) => {
-  
   return (
     <>
       {/* TODO: Sync controls && selection controls animations!!! */}
@@ -67,9 +71,7 @@ export const ListControls: React.FC<IProps> = ({
             visible: someSelected,
           })}
         >
-          <FilterSelector
-            callback={selectFilter}
-          />
+          <FilterSelector callback={selectFilter} />
 
           <IconButton
             className="controls-button"

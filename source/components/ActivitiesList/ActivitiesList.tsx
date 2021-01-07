@@ -44,7 +44,6 @@ export const ActivitiesList: React.FC<IProps> = ({
   };
 
   const onSelectActivity = (activity: IActivity) => {
-    console.log('onSelectActivity!');
     setSelected([...selected, activity]);
   };
 
