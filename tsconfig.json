@@ -2,9 +2,11 @@
   "compilerOptions": {
     "noImplicitAny": true,
     "removeComments": true,
+    "lib": ["Dom", "ESNext"],
     "jsx": "react",
     "target": "ES6",
-    "module": "ES2015",
+    "module": "ESNext",
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
@@ -20,11 +22,11 @@
     },
     "typeRoots": [
       "./custom_typings"
-    ]
+    ],
+    "types": [ "@types/jest", "node" ]
   },
   "exclude": [
-    "node_modules",
-    "*.test.tsx"
+    "node_modules"
   ],
   "awesomeTypescriptLoaderOptions": {
       /* ... */
