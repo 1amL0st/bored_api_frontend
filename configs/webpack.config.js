@@ -7,6 +7,13 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 let isDevMode = false;
 const outputPath = path.resolve(__dirname, '../build');
 
+function babelLoaderPlugins() {
+  if (isDevMode) {
+    return [require.resolve('react-refresh/babel')];
+  }
+  return [];
+}
+
 function generateModule() {
   return {
     rules: [
@@ -25,9 +32,7 @@ function generateModule() {
           {
             loader: 'babel-loader',
             options: {
-              plugins: [
-                isDevMode && require.resolve('react-refresh/babel'),
-              ]
+              plugins: babelLoaderPlugins()
             }
           },
           {
@@ -64,11 +69,12 @@ function generatePlugins() {
       fix: true,
       failOnError: !isDevMode,
     }),
-
-    isDevMode && new webpack.HotModuleReplacementPlugin(),
-    isDevMode && new ReactRefreshWebpackPlugin(),
   ];
 
+  if (isDevMode) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new ReactRefreshWebpackPlugin());
+  }
 
   return plugins;
 }

@@ -3,6 +3,7 @@ const config = require('../configs/webpack.config');
 
 webpack(config('production'), (err, stats) => {
   if (err) {
+    console.log('Error happened!', err);
   } else {
     if (stats.hasErrors()) {
       // This will print erros if something went wrong
