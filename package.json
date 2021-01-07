@@ -1,7 +1,7 @@
 {
-  "name": "bored_api_wrapper",
+  "name": "bored_api_frontend",
   "version": "1.0.0",
-  "description": "bored_api_wrapper\"",
+  "description": "bored_api_frontend",
   "main": "index.js",
   "scripts": {
     "start": "node scripts/start.js",
