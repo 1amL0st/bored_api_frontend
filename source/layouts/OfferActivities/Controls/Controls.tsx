@@ -15,22 +15,22 @@ interface IProps {
 }
 
 enum SearchStage {
-  none,
-  searching,
-  failed,
+  Idle,
+  Searching,
+  Failed,
 }
 
 export const Controls: React.FC<IProps> = ({ className }: IProps) => {
-  const [searchStage, setSearchStage] = useState(SearchStage.none);
+  const [searchStage, setSearchStage] = useState(SearchStage.Idle);
   const [selectedType, setSelectedType] = useState('type');
 
   async function onGetRandomActivityBtn() {
-    setSearchStage(SearchStage.searching);
+    setSearchStage(SearchStage.Searching);
     try {
       await API.searchActivity(selectedType as ActivityType);
-      setSearchStage(SearchStage.none);
+      setSearchStage(SearchStage.Idle);
     } catch (error) {
-      setSearchStage(SearchStage.failed);
+      setSearchStage(SearchStage.Failed);
     }
   }
 
@@ -50,7 +50,7 @@ export const Controls: React.FC<IProps> = ({ className }: IProps) => {
   );
 
   const onSearchWindowClose = () => {
-    setSearchStage(SearchStage.none);
+    setSearchStage(SearchStage.Idle);
   };
 
   return (
