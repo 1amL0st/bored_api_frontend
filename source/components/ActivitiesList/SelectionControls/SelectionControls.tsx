@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import * as Icons from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IActivity } from 'api';
 import { IconButton } from 'components/IconButton';
@@ -30,20 +29,22 @@ export const SelectionControls: React.FC<IProps> = ({
   removeSelectedBtn,
   unselectAllBtn,
 }: IProps) => {
-  const buttons = controls?.map((control) => (
-    <IconButton
-      className="controls-button"
-      title="Move selected activies to saved"
-      key={1}
-      onClick={() => {
-        // TODO: This looks like very bad idea....
-        control.callback(selected);
-        unselectAllBtn();
-      }}
-    >
-      <FontAwesomeIcon icon={control.icon} />
-    </IconButton>
-  ));
+  const buttons = controls?.map((control) => {
+    const clickHandler = () => {
+      control.callback(selected);
+      unselectAllBtn();
+    };
+
+    return (
+      <IconButton
+        className="controls-button"
+        title={control.title}
+        key={1}
+        onClick={clickHandler}
+        icon={control.icon}
+      />
+    );
+  });
 
   return (
     <div
@@ -56,16 +57,14 @@ export const SelectionControls: React.FC<IProps> = ({
         className="controls-button"
         title="Unselect all selected activities"
         onClick={unselectAllBtn}
-      >
-        {<FontAwesomeIcon icon={Icons.faEraser} />}
-      </IconButton>
+        icon={Icons.faEraser}
+      />
       <IconButton
         className="controls-button"
         title="Remove all selected activities"
         onClick={removeSelectedBtn}
-      >
-        {<FontAwesomeIcon icon={Icons.faTrash} />}
-      </IconButton>
+        icon={Icons.faTrash}
+      />
       {buttons}
     </div>
   );

@@ -1,16 +1,10 @@
 import React from 'react';
 
 import { PopUpWindow } from 'components/PopUpWindow';
+import { SearchStage } from '../types';
 
 import FailedSearchGif from 'assets/failed_search.gif';
 import SearchGif from 'assets/search.gif';
-
-// FIXME: There is a copy of this enum in ../controls/coontrols.tsx!!!
-enum SearchStage {
-  Idle,
-  Searching,
-  Failed,
-}
 
 interface IProps {
   stage: SearchStage;

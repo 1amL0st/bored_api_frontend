@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import * as Icons from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IconButton } from 'components/IconButton';
 
@@ -65,9 +64,8 @@ export const ListControls: React.FC<IProps> = ({
             className="controls-button"
             title="Remove all activities in the list"
             onClick={onRemoveAllActivitiesBtn}
-          >
-            {<FontAwesomeIcon icon={Icons.faTrash} />}
-          </IconButton>
+            icon={Icons.faTrash}
+          />
         </div>
       )}
     </>

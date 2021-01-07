@@ -2,22 +2,16 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import * as Icons from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ActivityType, API } from 'api';
 import { IconButton } from 'components/IconButton';
 
+import { SearchStage } from '../types';
 import { SearchWindow } from '../SearchWindow';
 import './Controls.scss';
 
 interface IProps {
   className?: string;
-}
-
-enum SearchStage {
-  Idle,
-  Searching,
-  Failed,
 }
 
 export const Controls: React.FC<IProps> = ({ className }: IProps) => {
@@ -60,9 +54,8 @@ export const Controls: React.FC<IProps> = ({ className }: IProps) => {
         className="offer-activities-btn"
         onClick={onGetRandomActivityBtn}
         title={'Get Random Activity'}
-      >
-        {<FontAwesomeIcon icon={Icons.faPlus} />}
-      </IconButton>
+        icon={Icons.faPlus}
+      />
       {select}
     </div>
   );
