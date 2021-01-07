@@ -25,7 +25,7 @@ export const ActivitiesList: React.FC<IProps> = ({
   controls,
 }: IProps) => {
   const [selected, setSelected] = useState(new Array<IActivity>());
-  const [filter, setFilter] = useState(FilterType.None);
+  const [filter, setFilter] = useState(FilterType.Filter);
 
   const someSelected = selected.length !== 0;
   const listIsEmpty = activities.length === 0;

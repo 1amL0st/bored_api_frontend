@@ -22,7 +22,7 @@ enum SearchStage {
 
 export const Controls: React.FC<IProps> = ({ className }: IProps) => {
   const [searchStage, setSearchStage] = useState(SearchStage.none);
-  const [selectedType, setSelectedType] = useState('any');
+  const [selectedType, setSelectedType] = useState('type');
 
   async function onGetRandomActivityBtn() {
     setSearchStage(SearchStage.searching);
@@ -42,7 +42,7 @@ export const Controls: React.FC<IProps> = ({ className }: IProps) => {
 
   const select = (
     <select className="control-panel-select" onChange={onSelectChange}>
-      <option>any</option>
+      <option>type</option>
       {Object.keys(ActivityType).map((type) => (
         <option key={type}>{type}</option>
       ))}

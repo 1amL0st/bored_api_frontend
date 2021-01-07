@@ -52,17 +52,17 @@ export const API = {
     };
   },
 
-  async fetchActivity(type: ActivityType | 'any'): Promise<IActivity> {
+  async fetchActivity(type: ActivityType | 'type'): Promise<IActivity> {
     const url =
       'https://www.boredapi.com/api/activity?' +
       new URLSearchParams({
-        type: type === 'any' ? '' : type,
+        type: type === 'type' ? '' : type,
       }).toString();
     const json = await (await fetch(url)).json();
     return API.castServerResponseToActivity(json);
   },
 
-  async searchActivity(type: ActivityType | 'any'): Promise<void> {
+  async searchActivity(type: ActivityType | 'type'): Promise<void> {
     let count = 0;
     async function closure() {
       const activity = await API.fetchActivity(type);

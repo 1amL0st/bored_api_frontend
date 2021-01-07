@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import * as Icons from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +9,7 @@ import { IconButton } from 'components/IconButton';
 import './ListControls.scss';
 
 export enum FilterType {
-  None = 'None',
+  Filter = 'Filter',
   Name = 'Name',
   Type = 'Type',
   Participants = 'Participants',
@@ -22,29 +22,17 @@ interface IFilterProps {
 }
 
 const FilterSelector: React.FC<IFilterProps> = ({ callback }: IFilterProps) => {
-  const [filter, setFilter] = useState(FilterType.None);
-
-  const onBtnClick = () => {
-    callback(filter);
+  const onFilterSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    callback(e.target.value as FilterType);
   };
 
   return (
     <div className="controls-filter">
-      <select
-        className="controls-filter-checkbox"
-        onChange={(e) => setFilter(e.target.value as FilterType)}
-      >
+      <select className="controls-filter-checkbox" onChange={onFilterSelect}>
         {Object.keys(FilterType).map((filter) => (
           <option key={filter}>{filter}</option>
         ))}
       </select>
-      <IconButton
-        className="controls-button"
-        title="Filter this list"
-        onClick={onBtnClick}
-      >
-        {<FontAwesomeIcon icon={Icons.faFilter} />}
-      </IconButton>
     </div>
   );
 };

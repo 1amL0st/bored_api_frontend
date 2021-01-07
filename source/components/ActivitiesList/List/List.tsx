@@ -40,7 +40,7 @@ export const List: React.FC<IProps> = ({
   const selectFilter = (): Array<IActivity> => {
     return activities.sort((a: IActivity, b: IActivity) => {
       switch (filter) {
-        case FilterType.None:
+        case FilterType.Filter:
           return Math.sign(Date.parse(b.addDate) - Date.parse(a.addDate));
         case FilterType.Name:
           return cmpStrings(a.name, b.name);
