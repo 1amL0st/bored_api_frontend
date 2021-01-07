@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: Button test First test 1`] = `
+<button
+  className="button"
+>
+  Facebook
+</button>
+`;
+
+exports[`Components: Button test Second test 1`] = `
+<button
+  className="button"
+>
+  <p>
+    Some text here
+  </p>
+</button>
+`;
