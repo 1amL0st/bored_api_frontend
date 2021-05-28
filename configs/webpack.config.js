@@ -36,9 +36,8 @@ function generateModule() {
             }
           },
           {
-            loader: "awesome-typescript-loader",
+            loader: "ts-loader",
             options: {
-              configFileName: 'tsconfig.json'
             },
           }
         ]
